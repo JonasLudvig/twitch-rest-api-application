@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: FiraSans-Light;
+  src: url(../dist/fonts/FiraSans-Light.ttf);
+}
+
+@font-face {
+  font-family: FiraSans-Medium;
+  src: url(../dist/fonts/FiraSans-Medium.ttf);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #1e1e1e;
+}
+
+h1 {
+  color: #0e0e10;
+  font-family: FiraSans-Medium;
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+h2 {
+  color: #0e0e10;
+  font-family: FiraSans-Medium;
+  font-size: 15px;
+  margin-bottom: 2px;
+}
+
+p {
+  color: #0e0e10;
+  font-family: FiraSans-Light;
+  font-size: 14px;
+}
+
+.entry {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  height: 100vh;
+  justify-content: center;
+  overflow: auto;
+  width: 100%;
+}
+
+.side-panel-js {
+  background: #ecf0f1;
+  height: 100%;
+  max-width: 320px;
+  min-width: 320px;
+  padding: 10px;
+}
+
+.side-panel-list-js {
+  margin-top: 20px;
+}
+
+.inline {
+  display: inline;
+}
+
+.main-panel {
+  height: 100%;
+  text-align: center;
+  width: 100%;
+}
+
+.button {
+  background: #dde0e2;
+  border-radius: 5px;
+  border: 0;
+  display: block;
+  font-family: NotoSans-Medium;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 6px;
+  padding: 13px 10px 10px 10px;
+  width: 100%;
+}
+
+.button:hover {
+  background: #d2d6d9;
+  cursor: pointer;
+}
+
+.entry-container {
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+}
+
+.profile-pic {
+  border-radius: 50%;
+  margin-right: 10px;
+  width: 55px;
+}
+
+#twitch-embed {
+  left: 50%;
+  position: relative;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
