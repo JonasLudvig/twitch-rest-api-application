@@ -20,7 +20,10 @@ class Stream {
         this.game = gameInput;
     }
 }
+let mainPanelContent = document.querySelector('.main-panel-content');
 let sidePanel = document.querySelector('.side-panel-js');
+let sidePanelHeader = document.querySelector('.side-panel-header-js');
+let sidePanelIcon = document.querySelector('.side-panel-icon');
 let sidePanelList = document.querySelector('.side-panel-list-js');
 let twitchEmbed = document.getElementById('twitch-embed');
 let channels = [];
@@ -46,6 +49,7 @@ function getUsersAndStreams() {
             button.appendChild(entryContainer);
             const entryLeft = document.createElement('div');
             const entryRight = document.createElement('div');
+            entryRight.classList.add('channel-meta-js');
             entryContainer.appendChild(entryLeft);
             entryContainer.appendChild(entryRight);
             const displayName = document.createElement('h2');
@@ -56,12 +60,13 @@ function getUsersAndStreams() {
             image.classList.add('profile-pic');
             entryLeft.appendChild(image);
             button.addEventListener('click', function () {
+                mainPanelContent.style.display = 'none';
                 if (twitchEmbed !== null) {
                     twitchEmbed.innerHTML = '';
                 }
                 const stream = new Twitch.Embed('twitch-embed', {
                     width: '90%',
-                    height: 500,
+                    height: '500',
                     muted: true,
                     channel: user.display_name,
                 });
@@ -70,8 +75,13 @@ function getUsersAndStreams() {
             arrayStream.data.forEach((stream) => {
                 if (stream.user_id == user.id) {
                     const streamLive = document.createElement('p');
-                    streamLive.innerText = 'Live! ' + stream.viewer_count + ' viewers';
+                    const streamViewerCount = document.createElement('p');
+                    streamLive.classList.add('live');
+                    streamViewerCount.classList.add('viewer-count');
+                    streamLive.innerText = 'live'.toUpperCase();
+                    streamViewerCount.innerText = stream.viewer_count + ' viewers';
                     entryRight.appendChild(streamLive);
+                    entryRight.appendChild(streamViewerCount);
                     const gameName = document.createElement('p');
                     gameName.innerText = stream.game_name;
                     entryRight.appendChild(gameName);
@@ -81,4 +91,26 @@ function getUsersAndStreams() {
         });
     });
 }
+let collapse = true;
+sidePanelIcon === null || sidePanelIcon === void 0 ? void 0 : sidePanelIcon.addEventListener('click', function () {
+    let channelMeta = document.querySelectorAll('.channel-meta-js');
+    if (collapse) {
+        channelMeta.forEach((meta) => {
+            meta.style.display = 'none';
+        });
+        sidePanelHeader.style.display = 'none';
+        sidePanel.style.minWidth = '0' + 'px';
+        sidePanelIcon.src = '../dist/img/expand.svg';
+        collapse = false;
+    }
+    else {
+        channelMeta.forEach((meta) => {
+            meta.style.display = 'block';
+        });
+        sidePanelHeader.style.display = 'block';
+        sidePanel.style.minWidth = '320' + 'px';
+        sidePanelIcon.src = '../dist/img/collapse.svg';
+        collapse = true;
+    }
+});
 //# sourceMappingURL=app.js.map

@@ -10,8 +10,18 @@
 }
 
 @font-face {
+  font-family: FiraSans-Regular;
+  src: url(../dist/fonts/FiraSans-Regular.ttf);
+}
+
+@font-face {
   font-family: FiraSans-Medium;
   src: url(../dist/fonts/FiraSans-Medium.ttf);
+}
+
+@font-face {
+  font-family: LilyScriptOne-Regular;
+  src: url(../dist/fonts/LilyScriptOne-Regular.ttf);
 }
 
 html,
@@ -25,23 +35,67 @@ body {
 }
 
 h1 {
-  color: #0e0e10;
+  color: #1e1e1e;
   font-family: FiraSans-Medium;
-  font-size: 16px;
-  margin-bottom: 30px;
+  font-size: 18px;
+  float: left;
 }
 
 h2 {
-  color: #0e0e10;
+  color: #1e1e1e;
   font-family: FiraSans-Medium;
   font-size: 15px;
   margin-bottom: 2px;
 }
 
+h3 {
+  color: #ecf0f1;
+  font-family: FiraSans-Medium;
+  font-size: 35px;
+  display: inline;
+}
+
+h4 {
+  color: #323232;
+  font-family: FiraSans-Medium;
+  font-size: 25px;
+  margin: 40px 0 0 0;
+}
+
+.gradient {
+  font-family: LilyScriptOne-Regular, cursive;
+  font-size: 45px;
+  padding: 0px 8px 0px 3px;
+  font-weight: 900;
+  margin: 3px;
+  background-image: linear-gradient(45deg, #1abc9c, #9b59b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 p {
-  color: #0e0e10;
+  color: #1e1e1e;
   font-family: FiraSans-Light;
   font-size: 14px;
+  margin: 2px 0 2px 0;
+}
+
+.live {
+  background: red;
+  border-radius: 3px;
+  color: #ecf0f1;
+  display: inline;
+  font-family: FiraSans-Regular;
+  font-size: 12px;
+  padding: 2px 4px 1.5px 4px;
+  position: relative;
+  top: -1px;
+  width: fit-content;
+}
+
+.viewer-count {
+  display: inline;
+  margin-left: 4px;
 }
 
 .entry {
@@ -58,10 +112,16 @@ p {
 
 .side-panel-js {
   background: #ecf0f1;
-  height: 100%;
+  min-height: 100%;
   max-width: 320px;
   min-width: 320px;
   padding: 10px;
+}
+
+.side-panel-icon {
+  width: 24px;
+  float: right;
+  margin: 0 0 15px 0;
 }
 
 .side-panel-list-js {
@@ -74,6 +134,7 @@ p {
 
 .main-panel {
   height: 100%;
+  overflow-y: hidden;
   text-align: center;
   width: 100%;
 }
@@ -108,9 +169,13 @@ p {
   width: 55px;
 }
 
+.main-panel-content {
+  padding: 20vh 40px 40px 40px;
+}
+
 #twitch-embed {
-  left: 50%;
   position: relative;
+  left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
 }
